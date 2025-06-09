@@ -44,12 +44,12 @@ class AppTheme {
         primary: Colors.deepPurple[300]!,
         secondary: Colors.tealAccent[200]!,
         surface: Colors.grey[850]!,
-        background: Colors.grey[900]!,
+        // background: Colors.grey[900]!, // Use surface for background in dark themes for consistency
         error: Colors.redAccent[100]!,
         onPrimary: Colors.black,
         onSecondary: Colors.black,
         onSurface: Colors.white,
-        onBackground: Colors.white,
+        // onBackground: Colors.white, // Use onSurface for onBackground
         onError: Colors.black,
         brightness: Brightness.dark,
     ),

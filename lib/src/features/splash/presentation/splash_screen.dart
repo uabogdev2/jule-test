@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:go_router/go_router.dart';
@@ -71,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                 colors: const [Color(0xFF1a237e), Color(0xFF673ab7), Color(0xFFf06292)],
                 stops: const [0.0, 0.5, 1.0],
                 begin: _gradientAlignmentAnimation.value,
-                end: Alignment(-_gradientAlignmentAnimation.value.x, -_gradientAlignmentAnimation.value.y), // Opposite alignment
+                end: -_gradientAlignmentAnimation.value, // Opposite alignment
               ),
             ),
             child: Center(

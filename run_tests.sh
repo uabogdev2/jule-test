@@ -1,40 +1,28 @@
 #!/bin/bash
-# ==============================================================================
-#  Script de Test pour un Projet Flutter
-# ==============================================================================
-#
-#  Ce script est destiné à la section "Repo commands" de Jules.
-#  Il suppose que l'environnement Flutter a déjà été configuré par
-#  le script 'setup_env.sh' lors de l'Initial Setup.
-#
-#  Il effectue les actions suivantes :
-#  1. Installe les dépendances spécifiques au projet.
-#  2. Lance les tests et l'analyse statique du code.
-#
-# ==============================================================================
 
-# Arrête l'exécution du script immédiatement si une commande échoue.
+# Exit immediately if a command exits with a non-zero status.
 set -e
 
-echo "--- Démarrage des tests du projet ---"
+echo "INFO: Ensuring Flutter project is properly initialized..."
+# Check if pubspec.yaml exists, if not, try to run flutter create
+if [ ! -f pubspec.yaml ]; then
+    echo "WARN: pubspec.yaml not found. Attempting to run 'flutter create .'"
+    flutter create --project-name cercle_mystique .
+    if [ ! -f pubspec.yaml ]; then
+        echo "ERROR: 'flutter create .' failed to create pubspec.yaml. Exiting."
+        exit 1
+    fi
+else
+    echo "INFO: pubspec.yaml found."
+fi
 
-# C'est une étape cruciale : il faut s'assurer que la commande 'flutter'
-# est disponible dans cette nouvelle session de terminal.
-export PATH="$PATH:$HOME/flutter_sdk/bin"
-
-# --- ETAPE 1: INSTALLATION DES DÉPENDANCES DU PROJET ---
-echo "--- Installation des dépendances du projet (depuis pubspec.yaml) ---"
+echo "INFO: Downloading dependencies..."
 flutter pub get
 
-
-# --- ETAPE 2: TEST ET ANALYSE DU CODE ---
-echo "--- Lancement des tests et de l'analyse statique ---"
-echo "Lancement des tests..."
-flutter test
-
-echo "Lancement de l'analyse statique..."
+echo "INFO: Running static analysis..."
 flutter analyze
 
+echo "INFO: Running tests..."
+flutter test
 
-# --- FIN DU SCRIPT ---
-echo "--- ✅ Tests terminés avec succès. ---"
+echo "SUCCESS: All checks passed!"
