@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "286502329232",
+    "project_id": "loup-garoup-v2",
+    "storage_bucket": "loup-garoup-v2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286502329232:android:d4b11721492c5049d8b115",
+        "android_client_info": {
+          "package_name": "com.example.cercle_mystique"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvMRK6xycww3KMvsOhTKWQmiDaz2DOlPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
